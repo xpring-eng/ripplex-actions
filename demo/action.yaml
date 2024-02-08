@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greeting
-        run: echo "Hello, ${{ github.event.inputs.name }}!"
+        run: echo "Hello, ${{ inputs.name }}!"
 
       - name: Check Environment
-        run: echo "Environment is ${{ github.event.inputs.environment }}."
+        run: echo "Environment is ${{ inputs.environment }}."
 
       - name: Check out repository
         uses: actions/checkout@v2
