@@ -1,7 +1,7 @@
 name: Manual Workflow with Inputs
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       name:
         description: 'Name'
