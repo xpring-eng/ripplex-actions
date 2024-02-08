@@ -4,13 +4,11 @@ on:
   workflow_call:
     inputs:
       name:
-        description: 'Name'
         required: true
-        default: 'World'
+        type: string
       environment:
-        description: 'Environment (dev or prod)'
         required: false
-        default: 'dev'
+        type: string
 
 jobs:
   say_hello:
