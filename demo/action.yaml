@@ -1,0 +1,34 @@
+name: Manual Workflow with Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name'
+        required: true
+        default: 'World'
+      environment:
+        description: 'Environment (dev or prod)'
+        required: false
+        default: 'dev'
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: echo "Hello, ${{ github.event.inputs.name }}!"
+
+      - name: Check Environment
+        run: echo "Environment is ${{ github.event.inputs.environment }}."
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Display Python version
+        run: python --version
